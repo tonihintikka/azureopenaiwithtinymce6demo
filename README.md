@@ -16,3 +16,6 @@ This repository contains a simple demo showcasing the integration of TinyMCE 6 e
 ```bash
 npm install
 npm start
+
+![image](https://github.com/tonihintikka/azureopenaiwithtinymce6demo/assets/6028261/e5bbe499-2134-4af8-bdc9-a13ad6d398e0)
+
