@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tiny.cloud/1/TINYMCE_API_KEY/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+    <label for="keywords">Keywords:</label>
+  <input type="text" id="keywords" name="keywords" style="width: 100%;">
+  <label for="ingress">Ingress (max 200 characters):</label>
+  <input type="text" id="ingress" name="ingress" maxlength="200" style="width: 100%; height: 100px;">
+  <textarea>
+    Welcome to "Craftsmen Builders" - where we bring a unique approach to construction services! Our team of dedicated professionals is here to deliver exceptional results for your projects. We take pride in our attention to detail and high-quality workmanship, ensuring that every aspect of your project is handled with expertise.
+
+    At Craftsmen Builders, we strive for perfection in every task we undertake. Our skilled craftsmen specialize in precise measurements, sturdy structures, and flawless finishes. We use only the finest materials available to ensure durability and longevity. With our professional touch, your vision will become a reality, surpassing your expectations.
+    
+    When it comes to estimates, accuracy is our top priority. Our experienced team meticulously calculates costs and timelines, providing you with transparent and reliable information. We value open communication and believe in keeping you informed throughout the entire construction process. Our goal is to build trust and ensure your complete satisfaction with our services.
+    
+    Customer satisfaction is at the heart of our business. We understand the importance of listening to your needs and delivering customized solutions. Our friendly and approachable staff is always ready to address your concerns and provide prompt assistance. With Craftsmen Builders, you can rest assured that your project will be handled professionally and efficiently.
+    
+    Contact us today for a consultation and let Craftsmen Builders transform your construction ideas into reality. Experience the difference our dedicated professionals can make in delivering exceptional results for your residential or commercial projects.
+</textarea>
+
+  <div id="chat-window" style="display:none; position: fixed; right: 0; top: 0; width: 50%; height: 100%; background-color: white; overflow-y: scroll; padding: 20px;">
+    <button id="close-chat" style="position: absolute; right: 10px; top: 10px;">X</button>
+    <div id="chat-content"></div>
+    <div id="loading-spinner" style="display: none; border: 6px solid #f3f3f3; border-top: 6px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 2s linear infinite;"></div>
+    <button id="replace-original" style="position: fixed; right: 133px; bottom: 20px;">Replace Original</button>
+    <button id="replace-keywords" style="position: fixed; right: 249px; bottom: 20px;">Replace Keywords</button>
+    <button id="replace-ingress" style="position: fixed; right: 20px; bottom: 20px;">Replace Ingress</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
