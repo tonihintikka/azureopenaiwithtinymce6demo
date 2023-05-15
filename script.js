@@ -1,5 +1,5 @@
 tinymce.init({
-    selector: 'textarea',
+    selector: '.editor',
     plugins: '... your plugins ...',
     toolbar: 'undo redo | customButton | keywordsButton | ingressButton ... your other toolbar items ...',
     setup: (editor) => {
@@ -14,7 +14,7 @@ tinymce.init({
           const loadingSpinner = document.getElementById('loading-spinner');
           const chatWindow = document.getElementById('chat-window');
           const chatContent = document.getElementById('chat-content');
-
+          chatContent.innerHTML = ''; // clear the chat window content
           chatWindow.style.display = 'block';
           loadingSpinner.style.display = 'block';
           
@@ -26,7 +26,7 @@ headers: {
 },
 body: JSON.stringify({
   messages: [
-    { role: "system", content: "You are an AI assistant that helps me to make this text better. Give me 3 paragraphs quality selling text if you need please image the paragraphs  " },
+    { role: "system", content: "You are an AI assistant that helps me to make this text better. Give me 3 paragraphs quality selling text if you need please image the paragraphs return text as html. Just content no other discussion for my side.  " },
     { role: "user", content: editorContent }
   ],
   max_tokens: 3000,
@@ -57,7 +57,7 @@ body: JSON.stringify({
           const loadingSpinner = document.getElementById('loading-spinner');
           const chatWindow = document.getElementById('chat-window');
           const chatContent = document.getElementById('chat-content');
-
+          chatContent.innerHTML = ''; // clear the chat window content
           chatWindow.style.display = 'block';
           loadingSpinner.style.display = 'block';
           const azureapikey="OPENAI_API_KEY"
@@ -100,7 +100,7 @@ body: JSON.stringify({
           const loadingSpinner = document.getElementById('loading-spinner');
           const chatWindow = document.getElementById('chat-window');
           const chatContent = document.getElementById('chat-content');
-
+          chatContent.innerHTML = ''; // clear the chat window content
           chatWindow.style.display = 'block';
           loadingSpinner.style.display = 'block';
           const azureapikey="OPENAI_API_KEY"
@@ -141,17 +141,21 @@ body: JSON.stringify({
     var ingressField = document.getElementById('ingress');
     const chatContent = document.getElementById('chat-content');
     ingressField.value = (chatContent.innerHTML);
+    
   });
   document.getElementById('replace-keywords').addEventListener('click', () => {
     var keywordsField = document.getElementById('keywords');
     const chatContent = document.getElementById('chat-content');
     keywordsField.value = (chatContent.innerHTML);
+    
   });
   document.getElementById('replace-original').addEventListener('click', () => {
     const chatContent = document.getElementById('chat-content');
     tinymce.activeEditor.setContent(chatContent.innerHTML);
+    
   });
   document.getElementById('close-chat').addEventListener('click', () => {
     const chatWindow = document.getElementById('chat-window');
     chatWindow.style.display = 'none';
+
   });

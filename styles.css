@@ -1,0 +1,14 @@
+#content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  #chat-window {
+    z-index: 1000; /* adjust this value as needed */
+  }
