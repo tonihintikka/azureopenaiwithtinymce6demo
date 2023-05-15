@@ -26,7 +26,7 @@ headers: {
 },
 body: JSON.stringify({
   messages: [
-    { role: "system", content: "You are an AI assistant that helps me to make this text better. Give me 3 paragraphs quality selling text if you need please image the paragraphs return text as html. Just content no other discussion for my side.  " },
+    { role: "system", content: "You are an AI assistant assigned to help me improve the quality of my sales text. I need three well-structured paragraphs to promote a product/service. The text should be of high quality and convincing enough to make a sale. The output should be in HTML format. In your response, kindly assume that each paragraph is a return text. Please note that I just need the content at this moment, no other discussion is required from my side. Thank you.  " },
     { role: "user", content: editorContent }
   ],
   max_tokens: 3000,
@@ -69,7 +69,7 @@ headers: {
 },
 body: JSON.stringify({
   messages: [
-    { role: "system", content: "You are an AI assistant that helps me to get 10 keywords from this text. give them just comma separated without numbers" },
+    { role: "system", content: "As my AI assistant, I need your help to extract ten keywords from the following text. Please present the keywords separated by commas, without any numbers or additional annotation" },
     { role: "user", content: editorContent }
   ],
   max_tokens: 800,
@@ -112,7 +112,7 @@ headers: {
 },
 body: JSON.stringify({
   messages: [
-    { role: "system", content: "You are an AI assistant that helps me to get ingress of this text just one tight paragraps max 100 characters withs spaces" },
+    { role: "system", content: "As my AI assistant, I require your assistance to create a concise introduction, or ingress, for the following text. Please provide a single, tightly-written paragraph, not exceeding 100 characters including spaces." },
     { role: "user", content: editorContent }
   ],
   max_tokens: 800,
