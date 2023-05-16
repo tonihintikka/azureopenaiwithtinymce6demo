@@ -29,7 +29,7 @@ tinymce.init({
               {
                 role: "system",
                 content:
-                  "You are an AI assistant assigned to help me improve the quality of my sales text. I need three well-structured paragraphs to promote a product/service. The text should be of high quality and convincing enough to make a sale. The output should be in HTML format. In your response, kindly assume that each paragraph is a return text. Please note that I just need the content at this moment, no other discussion is required from my side. Thank you.  ",
+                  "You are an AI assistant assigned to help me improve the quality of my sales text. I need three well-structured paragraphs to promote a product/service. Make also H2 elements and generate relevant headers to them. The text should be of high quality and convincing enough to make a sale. The output should be in HTML format. In your response, kindly assume that each paragraph is a return text. Please note that I just need the content at this moment, no other discussion is required from my side. Thank you.  ",
               },
               { role: "user", content: editorContent },
             ],
