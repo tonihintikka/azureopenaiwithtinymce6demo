@@ -20,7 +20,7 @@ npm install
 npm start
 ```
 
-## added the weather API demo
+## Added the weather API demo
 
 https://github.com/tonihintikka/azureopenaiwithtinymce6demo/assets/6028261/1b507549-45d0-469b-94f0-82ec76a40a26
 
