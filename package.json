@@ -11,8 +11,12 @@
   "author": "Toni Hintikka",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "axios": "^1.4.0",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
     "open": "^9.1.0",

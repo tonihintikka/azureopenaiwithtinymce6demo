@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style></style>
+    <link rel="stylesheet" type="text/css" href="weatherstyles.css" />
+  </head>
+  <body class="bg-gray-200 flex items-center justify-center h-screen">
+    <!-- Add this somewhere in your body -->
+    <div
+      id="loading-indicator"
+      class="fixed top-0 left-0 z-50 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50"
+      style="display: none"
+    >
+      <div
+        class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-gray-900"
+      ></div>
+    </div>
+
+    <form
+      id="weather-form"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    >
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="sport"
+          >Sport:</label
+        >
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="sport"
+          name="sport"
+          type="text"
+        />
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="location"
+          >Location:</label
+        >
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="location"
+          name="location"
+          type="text"
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <input
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+          value="Get Recommendation"
+        />
+      </div>
+    </form>
+    <div
+      id="weather-data"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    ></div>
+    <div
+      id="clothing-recommendation"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    ></div>
+
+    <script>
+      document
+        .getElementById("weather-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const sport = document.getElementById("sport").value;
+          const location = document.getElementById("location").value;
+          // Check if both fields have been filled out
+          if (!sport || !location) {
+            alert("Please fill out both fields.");
+            return; // Stop the form submission
+          }
+
+          const loadingIndicator = document.getElementById("loading-indicator");
+
+          loadingIndicator.style.display = "block"; // Show loading indicator
+
+          const weatherResponse = await fetch("/api/weather", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ location }),
+          });
+
+          const weatherData = await weatherResponse.json();
+
+          document.getElementById(
+            "weather-data"
+          ).textContent = `The current weather in ${location} is ${weatherData.current.temp_c}°C with ${weatherData.current.condition.text}.`;
+
+          const openAIResponse = await fetch("/api-call", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              messages: [
+                {
+                  role: "system",
+                  content: `Your act as my fitness coach. you are speaking to 40 years old. The current weather in ${location} is ${weatherData.current.temp_c}°C with ${weatherData.current.condition.text}. I am planning to go ${sport}. What should I wear? `,
+                },
+              ],
+              max_tokens: 100,
+              temperature: 0.7,
+              frequency_penalty: 0,
+              presence_penalty: 0,
+              top_p: 0.95,
+              stop: null,
+            }),
+          });
+
+          const openAIData = await openAIResponse.json();
+          document.getElementById("clothing-recommendation").textContent =
+            openAIData.choices[0].message.content;
+
+          loadingIndicator.style.display = "none"; // Hide loading indicator
+        });
+    </script>
+  </body>
+</html>

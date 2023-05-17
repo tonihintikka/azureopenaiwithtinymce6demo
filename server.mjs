@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import axios from "axios";
 import fs from "fs";
 import path from "path";
 import open from "open";
@@ -42,6 +43,14 @@ app.post("/api-call", async (req, res) => {
 
   const responseData = await response.json();
   res.send(responseData);
+});
+
+app.post("/api/weather", async (req, res) => {
+  const location = req.body.location;
+  const response = await axios.get(
+    `https://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${location}`
+  );
+  res.json(response.data);
 });
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

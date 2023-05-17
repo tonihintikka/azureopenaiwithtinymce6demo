@@ -2,11 +2,7 @@
 
 This repository contains a simple demo showcasing the integration of TinyMCE 6 editor with Azure OpenAI API for text improvement, keyword extraction, and generating ingress.
 
-
 https://github.com/tonihintikka/azureopenaiwithtinymce6demo/assets/6028261/97867f66-3d5a-4a1f-86b2-9afcf6124aec
-
-
-
 
 ## Prerequisites
 
@@ -21,7 +17,17 @@ https://github.com/tonihintikka/azureopenaiwithtinymce6demo/assets/6028261/97867
 
 ```bash
 npm install
-npm start 
+npm start
 ```
 
+## added the weather API demo
 
+A demo combining the Weather API and Azure API has been added to weatherform.html. You can access it by opening the following address: http://localhost3000/weatherform.
+
+This form prompts you to select your preferred sport and provides clothing recommendations based on the current weather conditions.
+
+If you plan to make any style changes, please note that I am using Tailwind CSS. To ensure your styles are updated while coding, remember to run the following command:
+
+npx tailwindcss -i weather.css -o weatherstyles.css --watch
+
+This will keep your styles up-to-date.
