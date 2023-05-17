@@ -5,59 +5,74 @@
     <link rel="stylesheet" type="text/css" href="weatherstyles.css" />
   </head>
   <body class="bg-gray-200 flex items-center justify-center h-screen">
-    <!-- Add this somewhere in your body -->
-    <div
-      id="loading-indicator"
-      class="fixed top-0 left-0 z-50 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50"
-      style="display: none"
-    >
+    <div class="md:flex">
+      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h1 class="uppercase tracking-wide text-smfont-semibold">
+          AI outfit for sports
+        </h1>
+      </div>
+      <!-- Add this somewhere in your body -->
       <div
-        class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-gray-900"
-      ></div>
-    </div>
+        id="loading-indicator"
+        class="fixed top-0 left-0 z-50 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50"
+        style="display: none"
+      >
+        <div
+          class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-gray-900"
+        ></div>
+      </div>
 
-    <form
-      id="weather-form"
-      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-    >
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="sport"
-          >Sport:</label
-        >
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="sport"
-          name="sport"
-          type="text"
-        />
+      <form
+        id="weather-form"
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="sport"
+            >Sport:</label
+          >
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="sport"
+            name="sport"
+            type="text"
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="location"
+            >Location:</label
+          >
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="location"
+            name="location"
+            type="text"
+          />
+        </div>
+        <div class="flex items-center justify-between">
+          <input
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+            value="Get Recommendation"
+          />
+        </div>
+      </form>
+
+      <div
+        id="weather-data"
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
+        <h2>weather:</h2>
       </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="location"
-          >Location:</label
-        >
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="location"
-          name="location"
-          type="text"
-        />
+
+      <div
+        id="clothing-recommendation"
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
+        <h2>Outfit Recommendation:</h2>
       </div>
-      <div class="flex items-center justify-between">
-        <input
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="submit"
-          value="Get Recommendation"
-        />
-      </div>
-    </form>
-    <div
-      id="weather-data"
-      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-    ></div>
-    <div
-      id="clothing-recommendation"
-      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-    ></div>
+    </div>
 
     <script>
       document
