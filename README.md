@@ -22,6 +22,11 @@ npm start
 
 ## added the weather API demo
 
+
+https://github.com/tonihintikka/azureopenaiwithtinymce6demo/assets/6028261/1b507549-45d0-469b-94f0-82ec76a40a26
+
+
+
 A demo combining the Weather API and Azure API has been added to weatherform.html. You can access it by opening the following address: http://localhost3000/weatherform.
 
 This form prompts you to select your preferred sport and provides clothing recommendations based on the current weather conditions.
